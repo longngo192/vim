@@ -5,7 +5,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 local home = os.getenv('HOME')
-local workspace_folder = home .. "/IdeaProjects/" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
+local workspace_folder = home .. "/workspace/" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
 
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local config = {
@@ -28,7 +28,7 @@ local config = {
 
     -- 💀
     '-configuration',
-    home .. '/source/clone/jdtls/org.eclipse.jdt.ls.product/target/repository/config_mac',
+    home .. '~/source/clone/jdtls/org.eclipse.jdt.ls.product/target/repository/config_linux',
     -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        ^^^^^^
     -- Must point to the                      Change to one of `linux`, `win` or `mac`
     -- eclipse.jdt.ls installation            Depending on your system.
