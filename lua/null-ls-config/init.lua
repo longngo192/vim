@@ -1,11 +1,15 @@
 local null_ls = require('null-ls')
 
 local formatting = null_ls.builtins.formatting
+local code_actions = null_ls.builtins.code_actions
+local diagnostics = null_ls.builtins.diagnostics
+local completion = null_ls.builtins.completion
 
 null_ls.setup({
   sources = {
     formatting.prettier, formatting.black, formatting.gofmt, formatting.shfmt,
-    formatting.clang_format, formatting.cmake_format, formatting.dart_format,
+    formatting.clang_format, formatting.cmake_format, formatting.dart_format, formatting.eslint_d,
+    code_actions.xo, diagnostics.codespell, diagnostics.eslint_d, completion.spell, completion.tags,
     formatting.google_java_format, formatting.lua_format.with({
       extra_args = {
         '--no-keep-simple-function-one-line', '--no-break-after-operator', '--column-limit=100',
