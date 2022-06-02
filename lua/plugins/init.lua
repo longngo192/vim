@@ -11,7 +11,7 @@ return require('packer').startup({
   function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
-    use { 'rose-pine/neovim', config = "vim.cmd('colorscheme rose-pine')" }
+    use { 'shaunsingh/nord.nvim', config = "vim.cmd('colorscheme nord')" }
     use {
       'nvim-treesitter/nvim-treesitter',
       run = ":TSUpdate",
@@ -79,7 +79,15 @@ return require('packer').startup({
     use { 'xiyaowong/nvim-transparent' }
     use { 'bling/vim-bufferline' }
     use { 'vim-airline/vim-airline' }
-    use { 'vim-airline/vim-airline-themes'  }
+    use { 'vim-airline/vim-airline-themes' }
+    use {
+      'prettier/vim-prettier',
+      run = 'yarn install --frozen-lockfile --production',
+      ft = {
+        'javascript', 'typescript', 'typescriptreact', 'javascriptreact', 'css', 'less', 'scss',
+        'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'
+      }
+    }
   end,
   config = {
     display = {

@@ -35,3 +35,6 @@ vim.bo.autoindent = true
 vim.o.expandtab = true
 vim.bo.expandtab = true
 vim.g.airline_powerline_fonts = 1
+vim.lazyredraw = true
+vim.g.airline_theme = 'luna'
+vim.g.transparent_enabled = true
