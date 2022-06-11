@@ -4,6 +4,23 @@ local formatting = null_ls.builtins.formatting
 local code_actions = null_ls.builtins.code_actions
 local diagnostics = null_ls.builtins.diagnostics
 local completion = null_ls.builtins.completion
+-- function PrintDiagnostics(opts, bufnr, line_nr, client_id)
+--   opts = opts or {}
+
+--   bufnr = bufnr or 0
+--   line_nr = line_nr or (vim.api.nvim_win_get_cursor(0)[1] - 1)
+
+--   local line_diagnostics = vim.lsp.diagnostic.get_line_diagnostics(bufnr, line_nr, opts, client_id)
+--   if vim.tbl_isempty(line_diagnostics) then return end
+
+--   local diagnostic_message = ""
+--   for i, diagnostic in ipairs(line_diagnostics) do
+--     diagnostic_message = diagnostic_message .. string.format("%d: %s", i, diagnostic.message or "")
+--     if i ~= #line_diagnostics then diagnostic_message = diagnostic_message .. "\n" end
+--   end
+--   -- print only shows a single line, echo blocks requiring enter, pick your poison
+--   vim.api.nvim_echo({ { diagnostic_message, "Normal" } }, false, {})
+-- end
 
 null_ls.setup({
   sources = {
@@ -30,5 +47,21 @@ null_ls.setup({
         augroup END
       ]]
     end
+    if client.resolved_capabilities.signature_help then
+      vim.cmd [[
+        augroup document_highlight
+          autocmd CursorHold <buffer> lua vim.lsp.buf.signature_help()
+        augroup END
+    ]]
+    end
+    vim.cmd [[
+        augroup document_diagnostic
+          autocmd! * <buffer>
+          autocmd CursorHold <buffer> silent! Lspsaga hover_doc
+          autocmd CursorHold <buffer> silent! Lspsaga show_line_diagnostics
+        augroup END
+      ]]
+
+    -- vim.cmd [[ autocmd CursorHold * lua PrintDiagnostics() ]]
   end
 })

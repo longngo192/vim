@@ -11,7 +11,8 @@ return require('packer').startup({
   function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
-    use { 'shaunsingh/nord.nvim', config = "vim.cmd('colorscheme nord')" }
+    -- use { 'shaunsingh/nord.nvim', config = "vim.cmd('colorscheme nord')" }
+    use { 'folke/tokyonight.nvim', config = "vim.cmd('colorscheme tokyonight')" }
     use {
       'nvim-treesitter/nvim-treesitter',
       run = ":TSUpdate",
