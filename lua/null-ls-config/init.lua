@@ -54,13 +54,13 @@ null_ls.setup({
         augroup END
     ]]
     end
-    vim.cmd [[
-        augroup document_diagnostic
-          autocmd! * <buffer>
-          autocmd CursorHold <buffer> silent! Lspsaga hover_doc
-          autocmd CursorHold <buffer> silent! Lspsaga show_line_diagnostics
-        augroup END
-      ]]
+    -- vim.cmd [[
+    --     augroup document_diagnostic
+    --       autocmd! * <buffer>
+    --       autocmd CursorHold <buffer> silent! Lspsaga hover_doc
+    --       autocmd CursorHold <buffer> silent! Lspsaga show_line_diagnostics
+    --     augroup END
+    --   ]]
 
     -- vim.cmd [[ autocmd CursorHold * lua PrintDiagnostics() ]]
   end

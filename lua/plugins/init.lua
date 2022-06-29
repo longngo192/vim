@@ -12,7 +12,11 @@ return require('packer').startup({
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
     -- use { 'shaunsingh/nord.nvim', config = "vim.cmd('colorscheme nord')" }
-    use { 'folke/tokyonight.nvim', config = "vim.cmd('colorscheme tokyonight')" }
+    -- use { 'folke/tokyonight.nvim', config = "vim.cmd('colorscheme tokyonight')" }
+    -- use { 'yads/NeoSolarized', config = "vim.cmd('colorscheme NeoSolarized')" }
+    -- use { 'EdenEast/nightfox.nvim', config = "vim.cmd('colorscheme terafox')" }
+    use { 'lifepillar/vim-solarized8', config = "vim.cmd('colorscheme solarized8_high')" }
+    use { 'kdheepak/lazygit.nvim' }
     use {
       'nvim-treesitter/nvim-treesitter',
       run = ":TSUpdate",
@@ -48,6 +52,7 @@ return require('packer').startup({
       config = "require('telescope-config')"
     }
     use 'mfussenegger/nvim-jdtls'
+    use 'easymotion/vim-easymotion'
     use { 'williamboman/nvim-lsp-installer' }
     use { 'neovim/nvim-lspconfig', config = "require('lsp')" }
     use { 'hrsh7th/cmp-nvim-lsp' }
